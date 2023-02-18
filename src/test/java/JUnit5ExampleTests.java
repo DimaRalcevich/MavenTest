@@ -51,4 +51,26 @@ public class JUnit5ExampleTests {
 
         System.out.println(token);
     }
+
+    @Test
+    @DisplayName("Check SUPP User")
+    void Check_SUPP_User() {
+        RequestSpecification authentificateSpec = given()
+                .baseUri("https://supp.flex.cafe/api/v1/Auth/AuthenticateUser")
+                .header("Flex-Host", "supp.flex.cafe")
+                .header("Content-Type", "application/json")
+                .body(String.format("{\"username\": \"%s\", \"password\": \"%s\"}", "categories_trusted", "Password1!"));
+
+        var response = authentificateSpec
+                .post()
+                .then()
+                .extract().response();
+
+        Assertions.assertEquals(200, response.statusCode());
+
+        var token = response.jsonPath().getString("token");
+        var id = response.jsonPath().get("session.user.id");
+
+        System.out.println(token);
+    }
 }
