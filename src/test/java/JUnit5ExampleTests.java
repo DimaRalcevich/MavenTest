@@ -13,9 +13,12 @@ public class JUnit5ExampleTests {
 
     @Test
     @DisplayName("Check UAT User")
+
     void Check_UAT_User() {
         Assertions.assertEquals(200, 200);
     }
+
+
 
     @Test
     @DisplayName("Check SUPP User")
