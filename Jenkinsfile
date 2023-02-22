@@ -5,15 +5,11 @@ pipeline {
             steps {
                 bat "mvn clean test"
             }
-        }
-        stage ('Step 2 - Build') {
-            steps {
-                echo "Build step..."
-            }
-        }
-        stage ('Step 3 - Deploy') {
-            steps {
-                echo "Deploy step..."
+            post {
+                success {
+                    echo "Build first-jenkins-job"
+                    build 'first-jenkins-job'
+                }
             }
         }
     }
