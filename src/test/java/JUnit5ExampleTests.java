@@ -18,8 +18,6 @@ public class JUnit5ExampleTests {
         Assertions.assertEquals(200, 200);
     }
 
-
-
     @Test
     @DisplayName("Check SUPP User")
     void Check_SUPP_User() {
