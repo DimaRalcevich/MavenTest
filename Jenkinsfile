@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage ('Step 1 - Init') {
+        stage ('Build') {
             steps {
-                echo "Init step..."
+                sh 'mvn clean test'
+                echo 'Tests have been executed...'
             }
         }
         stage ('Step 2 - Build') {
