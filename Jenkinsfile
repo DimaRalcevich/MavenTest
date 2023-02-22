@@ -4,7 +4,6 @@ pipeline {
         stage ('Build') {
             steps {
                 sh 'mvn clean test'
-                echo 'Tests have been executed...'
             }
         }
         stage ('Step 2 - Build') {
