@@ -15,5 +15,24 @@ pipeline {
                 }
             }
         }
+        stage ('Parallel actions'){
+            parallel{
+                stage ('Act 1'){
+                    steps {
+                        echo ('Act 1...')
+                    }
+                }
+                stage ('Act 2'){
+                    steps {
+                        echo ('Act 2...')
+                    }
+                }
+                stage ('Act 3'){
+                    steps {
+                        echo ('Act 3...')
+                    }
+                }
+            }
+        }
     }
 }
